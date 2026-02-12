@@ -1,0 +1,1 @@
+Bonjour voici le rendu de Paul Gréaume et Nicolas Herman. Vous pouvez cloner le repo et une fois le docker lancé depuis le bon dossier et le geoserver connecté le port 80:80 devrait vous ammener sur notre homepage
