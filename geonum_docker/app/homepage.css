@@ -34,33 +34,25 @@ hr {
     opacity: 0.5;
 }
 
-/* goToMapBtn see map center horizontale / vertical */
-#goToLfBtn {
+.btn.btn-primary {
     position: absolute;
     top: 65%;
-    left: 40%;
     width: 14%;
     height: 7%;
     font-weight: bold;
     font-size: 1.2rem;
     color: #fff;
-    transform: translate(-50%, -50%);
     background-color: #1b3469;
     border: none;
+    transform: translate(-50%, -50%);
+}
+
+#goToLfBtn {
+    left: 40%;
 }
 
 #goToOlBtn {
-    position: absolute;
-    top: 65%;
     left: 60%;
-    width: 14%;
-    height: 7%;
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: #fff;
-    transform: translate(-50%, -50%);
-    background-color: #1b3469;
-    border: none;
 }
 
 .slogan {

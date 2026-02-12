@@ -1,7 +1,7 @@
-// 1. Initialisation de la carte
+//Initialisation de la carte
 let carte = L.map('carte').setView([45.719, 4.918], 2);
 
-// 2. Définition des fonds de carte (Base Layers)
+//Définition des fonds de carte (Base Layers)
 let osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
 }).addTo(carte);
@@ -10,7 +10,7 @@ let satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/service
     attribution: 'Tiles © Esri'
 });
 
-// 3. Variables pour les éléments UI
+//Variables pour les éléments UI
 let rectangle = document.getElementById("rectangle");
 let closeBtn = document.getElementById("closeBtn");
 
@@ -24,7 +24,7 @@ function ajusterPositionBouton() {
     }
 }
 
-// 4. Configuration des couleurs
+//Configuration des couleurs
     function getReactionColor(reaction) {
         const val = reaction ? reaction.toString().trim() : "NULL";
         switch (val) {
@@ -38,7 +38,7 @@ function ajusterPositionBouton() {
         }
     }
 
-// 5. Chargement des données via WFS (GeoJSON)
+//Chargement des données via WFS (GeoJSON)
 let urlGeoJSON = "http://localhost:8080/geoserver/Cabinet_de_juristes/ows?" +
     "service=WFS&version=1.0.0&request=GetFeature&" +
     "typeName=Cabinet_de_juristes:deals_&" +
@@ -61,6 +61,10 @@ fetch(urlGeoJSON)
                     fillOpacity: 0.8
                 });
             },
+            /*application de l'écouteur pour mettre à jour la modale d'affichage
+            * -id
+            * -type de culture
+            * -réaction*/
             onEachFeature: function (feature, layer) {
                 layer.on('click', function (e) {
                     L.DomEvent.stopPropagation(e);
@@ -77,7 +81,7 @@ fetch(urlGeoJSON)
                 });
             }
         }).addTo(carte);
-
+// Ajout des couches
         let baseMaps = {
             "OpenStreetMap": osm,
             "Satellite": satellite
@@ -89,7 +93,7 @@ fetch(urlGeoJSON)
     })
     .catch(error => console.error('Erreur lors du chargement WFS:', error));
 
-// 7. Gestion du bouton de fermeture
+//Gestion du bouton de fermeture
 closeBtn.addEventListener("click", function () {
     let isOpen = closeBtn.classList.contains("open");
     if (isOpen) {
@@ -119,7 +123,7 @@ legend.onAdd = function (map) {
     ];
     let labels = ['<strong>Légende :</strong><br>Statut de la consultation'];
 
-    // Boucle à travers nos catégories pour générer une étiquette avec un carré de couleur
+    // Boucle à travers les catégories pour générer une étiquette avec un cercle de couleur
     for (let i = 0; i < grades.length; i++) {
         labels.push(
             '<i style="background:' + getReactionColor(grades[i]) + '"></i> ' +
@@ -132,12 +136,11 @@ legend.onAdd = function (map) {
 };
 legend.addTo(carte);
 
-// On ne garde qu'une seule fonction propre
 function initIntroModal() {
     const el = document.getElementById('introModal');
     if (!el) return;
 
-    // Si bootstrap n'est pas encore chargé (cas rare avec defer), on attend un peu
+    // Si bootstrap n'est pas encore chargé, on attend un peu
     if (typeof bootstrap === 'undefined') {
         setTimeout(initIntroModal, 100);
         return;
@@ -150,5 +153,4 @@ function initIntroModal() {
     intro.show();
 }
 
-// Un seul écouteur suffit
 window.addEventListener('load', initIntroModal);
