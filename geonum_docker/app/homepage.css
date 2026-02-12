@@ -1,0 +1,76 @@
+
+/* --- Page d'accueil pour diriger vers tel ou tel carte --- */
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: url("images/GG-L1-why-violate-laws.cfrelogo.png");
+    opacity: 0.4;
+    background-color: #ffffff;
+    background-size: cover;
+    background-position: left;
+    z-index: -1;
+}
+
+.title-page {
+    margin: 0;
+    color: #ffffff;
+    font-size: 2rem;
+    line-height: 1.1;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 180px);
+    padding: 20px;
+}
+
+hr {
+    border-top-color: #bbb;
+    opacity: 0.5;
+}
+
+/* goToMapBtn see map center horizontale / vertical */
+#goToLfBtn {
+    position: absolute;
+    top: 65%;
+    left: 40%;
+    width: 14%;
+    height: 7%;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #fff;
+    transform: translate(-50%, -50%);
+    background-color: #1b3469;
+    border: none;
+}
+
+#goToOlBtn {
+    position: absolute;
+    top: 65%;
+    left: 60%;
+    width: 14%;
+    height: 7%;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #fff;
+    transform: translate(-50%, -50%);
+    background-color: #1b3469;
+    border: none;
+}
+
+.slogan {
+    top: 40%;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    font-size: 1.3rem;
+    text-align: center;
+    width: 80%;
+    max-width: 720px;
+    color: #ffffff;
+}

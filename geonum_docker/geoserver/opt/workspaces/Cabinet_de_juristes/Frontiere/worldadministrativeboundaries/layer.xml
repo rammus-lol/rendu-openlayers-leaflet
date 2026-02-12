@@ -1,0 +1,17 @@
+<layer>
+  <name>worldadministrativeboundaries</name>
+  <id>LayerInfoImpl-3b087a81:19c47a6187e:-7fe8</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl--4c62e31a:19bbbdb42bc:-7fdd</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl-3b087a81:19c47a6187e:-7fe9</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2026-02-10 13:35:24.917 UTC</dateCreated>
+  <dateModified>2026-02-10 15:04:13.585 UTC</dateModified>
+</layer>

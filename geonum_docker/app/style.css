@@ -1,0 +1,219 @@
+
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* Fixe la carte en plein écran sans scroll */
+  font-family: 'Inter', sans-serif; /* Police utilisée */
+  font-weight: 400;
+  color: #1b3469; /* Couleur du texte */
+}
+
+/*Bandeau*/
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3000;
+}
+/* Bandeau entreprise (noir fin) */
+#header-company {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 0;
+  text-decoration: none; /* Enlève le soulignement du lien */
+  display: block; /* Pour que le lien prenne toute la largeur */
+  transition: background-color 0.2s ease; /* Animation fluide */
+  cursor: pointer; /* Change le curseur au survol */
+}
+
+#header-company:hover {
+  background: rgb(133, 192, 246); /* Légèrement plus clair au survol */
+  color: #fff; /* Garde le texte blanc */
+}
+
+#header-company:visited {
+  color: #fff; /* Empêche le lien visité de changer de couleur */
+}
+/* Bandeau entreprise */
+
+/* Bandeau titre carte (noir épais) */
+#header-title {
+  background: linear-gradient(180deg, #1b3469, #1b3469);
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  padding: 10px 16px 12px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Définir la hauteur du header et fixe la carte en dessous du header */
+:root {
+  --header-height: 74px;
+}
+
+/*Position de la Carte */
+#map {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: var(--header-height); /* Laisse la place au header */
+  bottom: 0;
+  width: 100%;
+  background: #e5e7eb;
+}
+
+
+/*Laisse le bouton de choix de pays au dessus de la carte*/
+#ui {
+  position: fixed !important;
+  top: calc(var(--header-height) + 12px);
+  left: 16px;
+  z-index: 5000;
+}
+
+/* Positionnement et style de l'echelle */
+.ol-scale-line {
+  position: fixed !important;
+  bottom: 12px;
+  right: 16px;
+  left: auto !important;
+  top: auto !important;
+
+  background: transparent;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.ol-scale-line-inner {
+  border-top: 2px solid #1b3469;
+  color: #1b3469;
+  font-size: 12px;
+  font-weight: 600;
+  padding-top: 4px;
+  margin: 0;
+  text-align: center;
+}
+
+/* Style tabe d'attributs */
+#attributes {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  width: 320px;
+  max-height: 20vh;
+  overflow-y: auto;
+  background: #1b3469;
+  border-radius: 12px;
+  padding: 8px 10px;
+  box-shadow: 0 8px 20px #000;
+  z-index: 2500;
+}
+
+/* Style fenêtre affichage*/
+#introModal .modal-content {
+  border-radius: 16px;
+  border: 1px solid #1b3469;
+  overflow: hidden;
+}
+#introModal .modal-header {
+  background: linear-gradient(135deg, #1b3469, #1b3469);
+  color: #fff;
+  border-bottom: 2px solid rgba(255,255,255,0.35);
+}
+#introModal .modal-body {
+  background: #fffaf0;
+  color: #1b3469;
+  line-height: 1.6;
+  font-size: 14px;
+}
+#introModal .modal-footer {
+  background: #fff7ed;
+}
+#introModal .btn.btn-secondary {
+  background: #3a3a3a;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+}
+#introModal .btn.btn-secondary:hover {
+  background: #3f3f3f;
+}
+#introModal .btn-close {
+  filter: invert(1);
+}
+
+
+/* Légende */
+#legend.legend {
+  position: fixed;
+  right: 16px;
+  bottom: 54px;         
+  z-index: 2400;
+  width: 230px;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 12px;
+  padding: 10px 12px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+  backdrop-filter: blur(6px);
+  font-size: 13px;
+}
+
+.legend-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0;
+}
+
+.legend-swatch {
+  width: 18px;
+  height: 12px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+/* Style géometrie pour legende*/
+.legend-swatch-poly {
+  width: 28px;
+  height: 16px;
+  border-radius: 6px;
+  background: rgba(0,113,221,0.20);
+  border: 2px solid rgba(255,255,255,0.95);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+}
+
+/* Style géometrie pour legende */
+.legend-swatch-point {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 45% 35%, rgba(0,84,182,1.00) 0 45%);
+}
+/* S */
+.legend-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.12);
+  margin: 10px 0;
+}
+
+/* Masque l'image GetLegendGraphic (petit symbole inutile) */
+#legend-wms {
+  display: none;
+}

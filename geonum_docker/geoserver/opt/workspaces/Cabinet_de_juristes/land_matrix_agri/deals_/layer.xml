@@ -1,0 +1,17 @@
+<layer>
+  <name>deals_</name>
+  <id>LayerInfoImpl--4c62e31a:19bbbdb42bc:-7fd8</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>StyleInfoImpl-3b087a81:19c47a6187e:-7ff4</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>FeatureTypeInfoImpl--4c62e31a:19bbbdb42bc:-7fd9</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+  <dateCreated>2026-01-14 13:13:06.753 UTC</dateCreated>
+  <dateModified>2026-02-10 13:19:08.590 UTC</dateModified>
+</layer>

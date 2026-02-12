@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
+
+    <!-- Police -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carte OpenLayers – Deals</title>
+
+    <!-- Lien vers Bootstrap pour éléments CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+        <!-- Lien vers Bootstrap pour éléments JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  </head>
+<!-- Titre et nom entreprise -->
+  <header id="header">
+    <a href="index.html" id="header-company">
+      NHPG International Right Consulting
+    </a>
+  <div id="header-title">
+    Quelles problématiques par transaction ?
+  </div>
+</header>
+
+
+    <!-- Menu déroulant bootstrap avec listage de tout les pays -->
+    <div id="ui" class="menu p-2">
+      <div class="dropdown mb-2">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton1"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Liste pays
+        </button>
+
+        <ul
+          class="dropdown-menu"
+          aria-labelledby="dropdownMenuButton1"
+          style="max-height: 320px; overflow-y: auto;"
+        >
+          <!-- Listage choix du pays -->
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-angola" name="country" value="Angola">
+            <label class="form-check-label" for="country-angola">Angola</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-argentina" name="country" value="Argentina">
+            <label class="form-check-label" for="country-argentina">Argentina</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-belize" name="country" value="Belize">
+            <label class="form-check-label" for="country-belize">Belize</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-benin" name="country" value="Benin">
+            <label class="form-check-label" for="country-benin">Benin</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-bolivia" name="country" value="Bolivia">
+            <label class="form-check-label" for="country-bolivia">Bolivia</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-bosnia" name="country" value="Bosnia and Herzegovina">
+            <label class="form-check-label" for="country-bosnia">Bosnia and Herzegovina</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-brazil" name="country" value="Brazil">
+            <label class="form-check-label" for="country-brazil">Brazil</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-cambodia" name="country" value="Cambodia">
+            <label class="form-check-label" for="country-cambodia">Cambodia</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-cameroon" name="country" value="Cameroon">
+            <label class="form-check-label" for="country-cameroon">Cameroon</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-central-african-republic" name="country" value="Central African Republic">
+            <label class="form-check-label" for="country-central-african-republic">Central African Republic</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-chile" name="country" value="Chile">
+            <label class="form-check-label" for="country-chile">Chile</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-china" name="country" value="China">
+            <label class="form-check-label" for="country-china">China</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-colombia" name="country" value="Colombia">
+            <label class="form-check-label" for="country-colombia">Colombia</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-congo-dem" name="country" value="Congo, Dem. Rep.">
+            <label class="form-check-label" for="country-congo-dem">Congo, Dem. Rep.</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-congo-rep" name="country" value="Congo, Rep.">
+            <label class="form-check-label" for="country-congo-rep">Congo, Rep.</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-costa-rica" name="country" value="Costa Rica">
+            <label class="form-check-label" for="country-costa-rica">Costa Rica</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-egypt" name="country" value="Egypt, Arab Rep.">
+            <label class="form-check-label" for="country-egypt">Egypt, Arab Rep.</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-ethiopia" name="country" value="Ethiopia">
+            <label class="form-check-label" for="country-ethiopia">Ethiopia</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-gabon" name="country" value="Gabon">
+            <label class="form-check-label" for="country-gabon">Gabon</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-georgia" name="country" value="Georgia">
+            <label class="form-check-label" for="country-georgia">Georgia</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-ghana" name="country" value="Ghana">
+            <label class="form-check-label" for="country-ghana">Ghana</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-guatemala" name="country" value="Guatemala">
+            <label class="form-check-label" for="country-guatemala">Guatemala</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-guinea-bissau" name="country" value="Guinea-Bissau">
+            <label class="form-check-label" for="country-guinea-bissau">Guinea-Bissau</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-guyana" name="country" value="Guyana">
+            <label class="form-check-label" for="country-guyana">Guyana</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-indonesia" name="country" value="Indonesia">
+            <label class="form-check-label" for="country-indonesia">Indonesia</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-kazakhstan" name="country" value="Kazakhstan">
+            <label class="form-check-label" for="country-kazakhstan">Kazakhstan</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-kenya" name="country" value="Kenya">
+            <label class="form-check-label" for="country-kenya">Kenya</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-lao-pdr" name="country" value="Lao PDR">
+            <label class="form-check-label" for="country-lao-pdr">Lao PDR</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-madagascar" name="country" value="Madagascar">
+            <label class="form-check-label" for="country-madagascar">Madagascar</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-malawi" name="country" value="Malawi">
+            <label class="form-check-label" for="country-malawi">Malawi</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-mali" name="country" value="Mali">
+            <label class="form-check-label" for="country-mali">Mali</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-mexico" name="country" value="Mexico">
+            <label class="form-check-label" for="country-mexico">Mexico</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-moldova" name="country" value="Moldova">
+            <label class="form-check-label" for="country-moldova">Moldova</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-morocco" name="country" value="Morocco">
+            <label class="form-check-label" for="country-morocco">Morocco</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-mozambique" name="country" value="Mozambique">
+            <label class="form-check-label" for="country-mozambique">Mozambique</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-myanmar" name="country" value="Myanmar">
+            <label class="form-check-label" for="country-myanmar">Myanmar</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-namibia" name="country" value="Namibia">
+            <label class="form-check-label" for="country-namibia">Namibia</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-niger" name="country" value="Niger">
+            <label class="form-check-label" for="country-niger">Niger</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-paraguay" name="country" value="Paraguay">
+            <label class="form-check-label" for="country-paraguay">Paraguay</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-peru" name="country" value="Peru">
+            <label class="form-check-label" for="country-peru">Peru</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-philippines" name="country" value="Philippines">
+            <label class="form-check-label" for="country-philippines">Philippines</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-romania" name="country" value="Romania">
+            <label class="form-check-label" for="country-romania">Romania</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-russia" name="country" value="Russian Federation">
+            <label class="form-check-label" for="country-russia">Russian Federation</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-senegal" name="country" value="Senegal">
+            <label class="form-check-label" for="country-senegal">Senegal</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-serbia" name="country" value="Serbia">
+            <label class="form-check-label" for="country-serbia">Serbia</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-sierra-leone" name="country" value="Sierra Leone">
+            <label class="form-check-label" for="country-sierra-leone">Sierra Leone</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-solomon-islands" name="country" value="Solomon Islands">
+            <label class="form-check-label" for="country-solomon-islands">Solomon Islands</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-south-africa" name="country" value="South Africa">
+            <label class="form-check-label" for="country-south-africa">South Africa</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-sudan" name="country" value="Sudan">
+            <label class="form-check-label" for="country-sudan">Sudan</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-swaziland" name="country" value="Swaziland">
+            <label class="form-check-label" for="country-swaziland">Swaziland</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-tajikistan" name="country" value="Tajikistan">
+            <label class="form-check-label" for="country-tajikistan">Tajikistan</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-tanzania" name="country" value="Tanzania">
+            <label class="form-check-label" for="country-tanzania">Tanzania</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-timor-leste" name="country" value="Timor-Leste">
+            <label class="form-check-label" for="country-timor-leste">Timor-Leste</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-tunisia" name="country" value="Tunisia">
+            <label class="form-check-label" for="country-tunisia">Tunisia</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-uganda" name="country" value="Uganda">
+            <label class="form-check-label" for="country-uganda">Uganda</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-ukraine" name="country" value="Ukraine">
+            <label class="form-check-label" for="country-ukraine">Ukraine</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-uruguay" name="country" value="Uruguay">
+            <label class="form-check-label" for="country-uruguay">Uruguay</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-uzbekistan" name="country" value="Uzbekistan">
+            <label class="form-check-label" for="country-uzbekistan">Uzbekistan</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-vietnam" name="country" value="Vietnam">
+            <label class="form-check-label" for="country-vietnam">Vietnam</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-zambia" name="country" value="Zambia">
+            <label class="form-check-label" for="country-zambia">Zambia</label>
+          </div></li>
+
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-zimbabwe" name="country" value="Zimbabwe">
+            <label class="form-check-label" for="country-zimbabwe">Zimbabwe</label>
+          </div></li>
+
+          <!-- Selectionner l'affichage des entités de tous les pays -->
+          <li><hr class="dropdown-divider"></li>
+          <li><div class="form-check px-3">
+            <input class="form-check-input" type="radio" id="country-all" name="country" value="tous" checked>
+            <label class="form-check-label" for="country-all"><strong>Tous</strong></label>
+          </div></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Carte -->
+    <div id="map"></div>
+
+    <!-- Table d'attributs  -->
+    <div id="attributes" class="menu p-2">
+      <table class="table table-sm table-bordered mb-0">
+        <thead>
+          <tr>
+            <th>Champ</th>
+            <th>Valeur</th>
+          </tr>
+        </thead>
+        <tbody id="attributes-body"></tbody>
+      </table>
+    </div>
+
+    <!-- Légende de la carte -->
+<div id="legend" class="legend">
+  <div class="legend-title">Légende</div>
+
+  <div id="legend-poly" class="legend-item">
+    <span class="legend-swatch legend-swatch-poly"></span>
+    <span>Pays avec au moins 1 deals</span>
+  </div>
+
+  <div id="legend-point" class="legend-item">
+    <span class="legend-swatch legend-swatch-point"></span>
+    <span>Deals</span>
+  </div>
+
+  <div class="legend-divider"></div>
+  <img id="legend-wms" alt="Légende GeoServer" />
+</div>
+
+    <!-- Fenêtre d'accueil contextuelle (Bootstrap) -->
+    <div class="modal fade" id="introModal" tabindex="-1" aria-labelledby="introModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="introModalLabel">À propos de cette carte</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Cette carte présente les deals et leurs conséquences négatives 
+              potentielles (dégradation environnementale, impacts socio-économiques, déplacements, etc.). 
+              L’objectif est, à partir de la localisation d’un deal, d’identifier les impacts susceptibles 
+              d’entraîner un contentieux et de connaitre le type pouvant entrainer une affaire judiciaire.
+            <p class="mb-0">
+              <strong>Note :</strong> Les valeurs Oui/Non indiquent la présence d’un impact recensé.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Compris</button>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- Vite / OpenLayers -->
+    <script type="module" src="ol_map.js"></script>
+  </body>
+</html>

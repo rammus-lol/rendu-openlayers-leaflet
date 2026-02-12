@@ -1,0 +1,205 @@
+/* 1. Reset et variables */
+:root {
+    --header-height: 74px; /* Hauteur totale calculée des deux bandeaux */
+}
+
+body {
+    background-color: rgb(25, 25, 27);
+    margin: 0;
+    padding: 0; /* CHANGEMENT : On met à 0 pour que le header colle aux bords */
+    overflow: hidden; /* Empêche le scroll inutile de la page entière */
+}
+
+/* 2. Style du Header */
+#header {
+    position: fixed; /* Fixe le header en haut */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2000; /* Doit être au-dessus de tout (carte et légendes) */
+}
+
+/* Bandeau entreprise (noir fin) */
+#header-company {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 6px 0;
+    text-decoration: none; /* Enlève le soulignement du lien */
+    display: block; /* Pour que le lien prenne toute la largeur */
+    transition: background-color 0.2s ease; /* Animation fluide */
+    cursor: pointer; /* Change le curseur au survol */
+}
+
+#header-company:hover {
+    background: rgb(133, 192, 246); /* Légèrement plus clair au survol */
+    color: #fff; /* Garde le texte blanc */
+}
+
+#header-company:visited {
+    color: #fff; /* Empêche le lien visité de changer de couleur */
+}
+
+/* Bandeau titre carte (bleu) */
+#header-title {
+    background: #1b3469; /* Simplifié le gradient si couleur unie */
+    color: #fff;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.02em;
+    padding: 8px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Force la modale Bootstrap au-dessus de tout */
+.modal-backdrop {
+    z-index: 2500 !important;
+}
+
+.modal {
+    z-index: 2600 !important;
+}
+
+#introModal {
+    font-family: 'Inter', sans-serif;
+    z-index: 2600 !important;} /* Augmenté et avec !important */
+
+#introModal .modal-content {
+    border-radius: 16px;
+    border: 1px solid #1b3469;
+    overflow: hidden;
+}
+
+#introModal .modal-header {
+    background: linear-gradient(135deg, #1b3469, #1b3469);
+    color: #fff;
+    border-bottom: 2px solid rgba(255,255,255,0.35);
+}
+
+#introModal .modal-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+#introModal .modal-body {
+    background: #fffaf0;
+    color: #1b3469;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+#introModal .modal-footer {
+    background: #fff7ed;
+}
+
+#introModal .btn.btn-secondary {
+    background: #3a3a3a;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+#introModal .btn.btn-secondary:hover {
+    background: #3f3f3f;
+}
+
+#introModal .btn-close {
+    filter: invert(1);
+}
+
+
+/* 3. La Carte */
+#carte {
+    position: absolute;
+    top: var(--header-height); /* Commence exactement sous le header */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #333;
+    z-index: 1;
+}
+
+/* 4. Éléments UI (Rectangle et Bouton) */
+#rectangle {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 400px;
+    min-height: 100px; /* Réduit pour laisser de la place au texte d'accueil */
+    z-index: 1000;
+    background-color: #ffffff;
+    border: 1px solid #ccc; /* Bordure plus fine et grise pour la modernité */
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 15px 25px;
+    line-height: 1.5;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+#closeBtn {
+    position: absolute;
+    left: 410px; /* rectangle width (400) + 10px */
+    width: 30px;
+    height: 30px;
+    background-color: #5b5b5b;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1001;
+    transition: bottom 0.25s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Flèche améliorée */
+#closeBtn::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid white;
+    transition: transform 0.25s ease;
+}
+
+#closeBtn:not(.open)::before {
+    transform: rotate(180deg);
+}
+
+/* 5. Légende */
+.legend {
+    background: white;
+    padding: 12px;
+    line-height: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 13px;
+}
+
+.legend i {
+    width: 14px;
+    height: 14px;
+    float: left;
+    margin-top: 3px; /* Aligne mieux le rond avec le texte */
+    margin-right: 10px;
+    border: 1px solid #444;
+    border-radius: 50%; /* Ronds parfaits */
+}
